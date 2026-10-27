@@ -228,3 +228,32 @@ h1 {
 @media (min-width: 500px) { .map-panel { height: 320px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 .journey-marker > span { display: block; transform: rotate(45deg); }
+
+
+/* LIGHT HERO THEME — warm ivory + soft sage */
+.hero {
+  color: #24352a;
+  background: radial-gradient(ellipse at 18% 76%, rgba(197, 221, 197, .58), transparent 38%), linear-gradient(125deg, #f4f5ed 0%, #edf1e7 56%, #e8eee4 100%);
+}
+.hero-grid {
+  opacity: .8;
+  background-image: linear-gradient(to right, rgba(83, 111, 87, .12) 1px, transparent 1px), linear-gradient(to bottom, rgba(83, 111, 87, .12) 1px, transparent 1px);
+}
+.hero::after {
+  background: linear-gradient(0deg, rgba(255, 255, 255, .14), transparent 58%);
+}
+.live-pill {
+  color: #31513d;
+  border-color: rgba(67, 99, 74, .25);
+  background: rgba(255, 255, 255, .72);
+  box-shadow: 0 2px 8px rgba(48, 67, 49, .04);
+}
+.eyebrow { color: #078344; }
+h1 { color: #25372b; text-shadow: 0 1px 0 rgba(255,255,255,.35); }
+.tag {
+  color: #526457;
+  border-color: rgba(72, 99, 78, .48);
+  background: rgba(255, 255, 255, .35);
+}
+.tag-primary { color: #fff; background: #079447; border-color: #079447; }
+@media (min-width: 500px) { body { background: #e8ece4; } }
