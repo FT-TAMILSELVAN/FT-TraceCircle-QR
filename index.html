@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#202720" />
+  <title>Trace Circle — Digital Product Passport</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero" aria-labelledby="product-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="live-pill"><span class="live-dot"></span> LIVE PRODUCT</div>
+      <div class="hero-copy">
+        <p class="eyebrow">DIGITAL IDENTITY PRODUCT</p>
+        <h1 id="product-title">Brunette<br />Brown Relaxed<br />Fit Shirt</h1>
+        <div class="product-tags" aria-label="Product attributes">
+          <span class="tag tag-primary">Men’s Shirt</span>
+          <span class="tag">Medium</span>
+          <span class="tag">Casual</span>
+        </div>
+      </div>
+      <img class="hero-shirt" src="assets/shirt-crop.svg" alt="Brunette brown relaxed fit shirt" />
+    </section>
+
+    <div class="content-wrap">
+      <section class="product-id-strip" aria-label="Product identity and verification status">
+        <div>
+          <span class="micro-label">Product ID</span>
+          <strong class="product-id">PRD-001</strong>
+        </div>
+        <span class="verified"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.4"/><path d="m6.5 10.2 2.2 2.2 4.7-5"/></svg> Blockchain Verified</span>
+      </section>
+
+      <div class="controls-row">
+        <button class="icon-button language-globe" type="button" aria-label="Language options" title="Language options">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.8 12h16.4M12 3.5c2.3 2.3 3.3 5.1 3.3 8.5s-1 6.2-3.3 8.5c-2.3-2.3-3.3-5.1-3.3-8.5s1-6.2 3.3-8.5Z"/></svg>
+        </button>
+        <label class="language-select">
+          <span class="sr-only">Select language</span>
+          <select id="language" name="language">
+            <option value="en" selected>English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ta">தமிழ்</option>
+            <option value="kn">ಕನ್ನಡ</option>
+          </select>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 9 5 5 5-5"/></svg>
+        </label>
+      </div>
+
+      <button class="action-button partner-button" type="button" id="partner-login">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="3.2"/><path d="M5.5 19v-1.4a6.5 6.5 0 0 1 13 0V19"/></svg>
+        Authorized Partner Login
+      </button>
+      <button class="action-button feedback-button" type="button" id="feedback-toggle">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5h15v11h-9l-5 3v-14Z"/></svg>
+        Customer Feedback
+      </button><br>
+      <form class="feedback-form" id="feedback-form" hidden>
+        <label for="feedback-message">Share your feedback</label>
+        <textarea id="feedback-message" rows="3" placeholder="Tell us about this product passport…"></textarea>
+        <button type="submit" class="small-submit">Submit feedback</button>
+        <p class="form-note" id="feedback-status" aria-live="polite"></p>
+      </form>
+
+      <section class="info-card dip-card" aria-labelledby="dip-heading">
+        <div class="card-heading">
+          <span class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 19 6v5.6c0 4.2-2.8 7-7 8.9-4.2-1.9-7-4.7-7-8.9V6l7-2.5Z"/><path d="m8.8 11.8 2.1 2.1 4.4-4.6"/></svg></span>
+          <div><h2 id="dip-heading">DIP and QR</h2><p>QR record and the identifiers encoded for this unit.</p></div>
+        </div>
+        <div class="card-rule"></div>
+        <dl class="details-list">
+          <div><dt>ID</dt><dd>84b3d404-d812-4d5a-8f87-f35074a14f5d</dd></div>
+          <div><dt>PRODUCT UNIT ID</dt><dd>bebf639e-f901-4cca-bdb4-44a2b3fd9014</dd></div>
+          <div><dt>PRODUCT ID</dt><dd>PRD-001</dd></div>
+          <div><dt>DIP</dt><dd>DIP 10001</dd></div>
+        </dl>
+        <a class="passport-link" href="#product-information">Open passport link <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="info-card product-info-card" id="product-information" aria-labelledby="product-info-heading">
+        <div class="card-heading">
+          <span class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.5 8 4.3v8.4L12 20.5l-8-4.3V7.8l8-4.3Z"/><path d="m4.3 7.9 7.7 4.2 7.7-4.2M12 12.1v8M8 5.7l8 4.3"/></svg></span>
+          <div><h2 id="product-info-heading">Product Information</h2><p>Product details returned by the DIP service</p></div>
+        </div>
+        <div class="card-rule"></div>
+        <dl class="details-list">
+          <div><dt>GTIN / MODEL NUMBER</dt><dd>8905412000025</dd></div>
+          <div><dt>PRODUCT NAME</dt><dd>Brunette Brown Relaxed Fit Shirt</dd></div>
+          <div><dt>MANUFACTURE / BRAND NAME</dt><dd>Demo Brand</dd></div>
+          <div><dt>PRODUCT TYPE</dt><dd>Apparel</dd></div>
+          <div><dt>PRODUCT SKU</dt><dd>ZUD-SHT-001</dd></div>
+          <div><dt>SERIAL NUMBER</dt><dd>ZUDSN202610001</dd></div>
+          <div><dt>MANUFACTURING DATE</dt><dd>21 Sep 2026</dd></div>
+          <div><dt>COUNTRY OF ORIGIN</dt><dd>India</dd></div>
+        </dl>
+      </section>
+
+      <section class="info-card journey-card" aria-labelledby="journey-heading">
+        <div class="card-heading">
+          <span class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.5 8 4.3v8.4L12 20.5l-8-4.3V7.8l8-4.3Z"/><path d="m4.3 7.9 7.7 4.2 7.7-4.2M12 12.1v8M8 5.7l8 4.3"/></svg></span>
+          <div><h2 id="journey-heading">Product Journey</h2><p>Product details returned by the DIP service</p></div>
+        </div>
+        <div class="card-rule"></div>
+        <div class="map-panel" aria-label="Interactive product journey map">
+          <div id="journey-map" class="live-map" role="application" aria-label="Interactive OpenStreetMap showing product journey locations"></div>
+          <div class="map-status"><span class="live-dot"></span><span id="map-status-text">LIVE JOURNEY MAP</span></div>
+          <div class="map-top-controls">
+            <button type="button" class="map-control expand-map" aria-label="Expand map" title="Expand map">⛶</button>
+          </div>
+          <div class="map-bottom-controls">
+            <button type="button" class="map-control" id="zoom-in" aria-label="Zoom in">+</button>
+            <button type="button" class="map-control" id="zoom-out" aria-label="Zoom out">−</button>
+            <button type="button" class="map-control locate-control" id="map-reset" aria-label="Fit all journey locations" title="Fit all locations">⌖</button>
+          </div>
+        </div>
+        <ol class="journey-timeline">
+          <li tabindex="0" role="button" aria-label="Show Fiber Sourcing on map" data-step="0">
+            <span class="step-number">1</span>
+            <div class="journey-step-main"><strong>Fiber Sourcing</strong><small>Global Fiber Network</small></div>
+            <div class="journey-step-meta"><strong>Multiple Origins</strong><time datetime="2026-06-01">06/01/2026</time></div>
+          </li>
+          <li tabindex="0" role="button" aria-label="Show Yarn Spinning on map" data-step="1">
+            <span class="step-number">2</span>
+            <div class="journey-step-main"><strong>Yarn Spinning</strong><small>Nahar Spinning Mills</small></div>
+            <div class="journey-step-meta"><strong>Tiruppur</strong><time datetime="2026-06-01">06/01/2026</time></div>
+          </li>
+          <li tabindex="0" role="button" aria-label="Show Fabric Dyeing on map" data-step="2">
+            <span class="step-number">3</span>
+            <div class="journey-step-main"><strong>Fabric Dyeing</strong><small>Eco Dye Solutions</small></div>
+            <div class="journey-step-meta"><strong>Tiruppur</strong><time datetime="2026-06-01">06/01/2026</time></div>
+          </li>
+          <li tabindex="0" role="button" aria-label="Show Quality Control and Packaging on map" data-step="3">
+            <span class="step-number">4</span>
+            <div class="journey-step-main"><strong>Quality Control &amp; Packaging</strong><small>Global Fiber Network</small></div>
+            <div class="journey-step-meta"><strong>Tiruppur</strong><time datetime="2026-06-01">06/01/2026</time></div>
+          </li>
+          <li tabindex="0" role="button" aria-label="Show Distribution on map" data-step="4">
+            <span class="step-number">5</span>
+            <div class="journey-step-main"><strong>Distribution</strong><small>Demo Manufacturing I</small></div>
+            <div class="journey-step-meta"><strong>Bengaluru</strong><time datetime="2026-09-21">21/09/2026</time></div>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>
+    // Small, framework-free interactions. Live tiles require an internet connection.
+    const feedbackToggle = document.querySelector('#feedback-toggle');
+    const feedbackForm = document.querySelector('#feedback-form');
+    const feedbackStatus = document.querySelector('#feedback-status');
+    feedbackToggle.addEventListener('click', () => {
+      feedbackForm.hidden = !feedbackForm.hidden;
+      if (!feedbackForm.hidden && window.gsap) gsap.fromTo(feedbackForm, { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: .28, ease: 'power2.out' });
+      if (!feedbackForm.hidden) document.querySelector('#feedback-message').focus();
+    });
+    feedbackForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const message = document.querySelector('#feedback-message').value.trim();
+      feedbackStatus.textContent = message ? 'Thanks — your feedback has been recorded in this demo.' : 'Please enter feedback before submitting.';
+      if (message) document.querySelector('#feedback-message').value = '';
+    });
+    document.querySelector('#partner-login').addEventListener('click', () => {
+      const message = 'Partner authentication is not connected yet. Connect this action to your sign-in endpoint.';
+      window.alert(message);
+    });
+
+    const journey = [
+      { title: 'Fiber Sourcing', supplier: 'Global Fiber Network', place: 'Coimbatore region', date: '01 Jun 2026', coords: [11.0168, 76.9558] },
+      { title: 'Yarn Spinning', supplier: 'Nahar Spinning Mills', place: 'Tiruppur', date: '01 Jun 2026', coords: [11.1085, 77.3411] },
+      { title: 'Fabric Dyeing', supplier: 'Eco Dye Solutions', place: 'Tiruppur', date: '01 Jun 2026', coords: [11.0730, 77.3290] },
+      { title: 'Quality Control & Packaging', supplier: 'Global Fiber Network', place: 'Tiruppur', date: '01 Jun 2026', coords: [11.1250, 77.3300] },
+      { title: 'Distribution', supplier: 'Demo Manufacturing I', place: 'Bengaluru', date: '21 Sep 2026', coords: [12.9716, 77.5946] }
+    ];
+    const mapEl = document.querySelector('#journey-map');
+    let liveMap = null, journeyMarkers = [], routeLine = null, activeStep = -1;
+    const statusText = document.querySelector('#map-status-text');
+    const fitJourney = () => {
+      if (!liveMap || !journeyMarkers.length) return;
+      const group = L.featureGroup(journeyMarkers);
+      liveMap.fitBounds(group.getBounds().pad(.18), { animate: true, duration: .7 });
+    };
+    const selectStep = (index) => {
+      activeStep = index;
+      document.querySelectorAll('.journey-timeline li').forEach((li, i) => li.classList.toggle('is-active', i === index));
+      if (!liveMap) return;
+      const point = journey[index];
+      statusText.textContent = point.title.toUpperCase() + ' · ' + point.place.toUpperCase();
+      liveMap.flyTo(point.coords, Math.max(liveMap.getZoom(), 10), { duration: .75 });
+      journeyMarkers.forEach((marker, i) => {
+        const el = marker.getElement();
+        if (el) el.classList.toggle('marker-active', i === index);
+      });
+      journeyMarkers[index].openPopup();
+    };
+    if (window.L && mapEl) {
+      liveMap = L.map('journey-map', { zoomControl: false, scrollWheelZoom: false, tap: true });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a>'
+      }).addTo(liveMap);
+      const icon = (n) => L.divIcon({ className: 'journey-marker-wrap', html: `<span class="journey-marker"><span>${n}</span></span>`, iconSize: [30, 30], iconAnchor: [15, 15] });
+      journey.forEach((point, index) => {
+        const marker = L.marker(point.coords, { icon: icon(index + 1), keyboard: true }).addTo(liveMap);
+        marker.bindPopup(`<div class="map-popup"><strong>${point.title}</strong><span>${point.supplier}</span><span>${point.place} · ${point.date}</span><button type="button" data-popup-step="${index}">View stage details</button></div>`);
+        marker.on('click', () => {
+          activeStep = index;
+          document.querySelectorAll('.journey-timeline li').forEach((li, i) => li.classList.toggle('is-active', i === index));
+          statusText.textContent = point.title.toUpperCase() + ' · ' + point.place.toUpperCase();
+        });
+        journeyMarkers.push(marker);
+      });
+      routeLine = L.polyline(journey.map(p => p.coords), { color: '#10934b', weight: 3, opacity: .85, dashArray: '7 7' }).addTo(liveMap);
+      fitJourney();
+      liveMap.on('popupopen', (event) => {
+        const button = event.popup.getElement()?.querySelector('[data-popup-step]');
+        if (button) button.addEventListener('click', () => selectStep(Number(button.dataset.popupStep)));
+      });
+      setTimeout(() => liveMap.invalidateSize(), 250);
+    } else {
+      statusText.textContent = 'MAP LIBRARY UNAVAILABLE';
+      mapEl.innerHTML = '<div class="map-fallback">Connect to the internet to load the live map tiles.</div>';
+    }
+    document.querySelectorAll('.journey-timeline li').forEach((li, index) => {
+      li.addEventListener('click', () => selectStep(index));
+      li.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); selectStep(index); } });
+    });
+    document.querySelector('#zoom-in').addEventListener('click', () => liveMap && liveMap.zoomIn());
+    document.querySelector('#zoom-out').addEventListener('click', () => liveMap && liveMap.zoomOut());
+    document.querySelector('#map-reset').addEventListener('click', fitJourney);
+    document.querySelector('.expand-map').addEventListener('click', () => {
+      const panel = document.querySelector('.map-panel');
+      panel.classList.toggle('map-expanded');
+      document.querySelector('.expand-map').setAttribute('aria-label', panel.classList.contains('map-expanded') ? 'Collapse map' : 'Expand map');
+      setTimeout(() => liveMap && liveMap.invalidateSize(), 250);
+    });
+    document.querySelector('#language').addEventListener('change', event => {
+      const names = { en: 'English selected', hi: 'हिन्दी चुनी गई', ta: 'தமிழ் தேர்ந்தெடுக்கப்பட்டது', kn: 'ಕನ್ನಡ ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ' };
+      statusText.textContent = names[event.target.value] || 'LANGUAGE SELECTED';
+    });
+
+    // GSAP entrance and scroll reveal animations; respects reduced-motion settings.
+    if (window.gsap && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.hero-copy > *, .hero-shirt, .live-pill', { opacity: 0, y: 18, duration: .8, stagger: .1, ease: 'power3.out', delay: .12 });
+      gsap.from('.product-id-strip, .controls-row, .action-button', { opacity: 0, y: 14, duration: .55, stagger: .08, ease: 'power2.out', delay: .25 });
+      gsap.utils.toArray('.info-card').forEach(card => {
+        gsap.from(card, { opacity: 0, y: 24, duration: .65, ease: 'power2.out',
+          ...(window.ScrollTrigger ? { scrollTrigger: { trigger: card, start: 'top 88%', once: true } } : {}) , immediateRender: false });
+      });
+      gsap.to('.live-dot', { opacity: .35, repeat: -1, yoyo: true, duration: 1.1, ease: 'sine.inOut' });
+    }
+  </script>
+</body>
+</html>
